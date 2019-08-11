@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const Message = (props) => {
+    console.group(props);
     if(props.success) { 
     return (
          <div data-test="message-container">
             This message container working fine
+            <hr/>
          </div>
+         
     )
     }
     else {
