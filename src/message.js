@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Message = (props) => {
-    console.group(props);
+    //console.group(props);
     if(props.success) { 
     return (
          <div data-test="message-container">
