@@ -3,7 +3,7 @@ import React from 'react';
 
 import GuessWord from './guessword';
 import Message from './message';
-
+import Input from './input'
 const gussedWords =[
   {guessWord:'tank', letterCount: 3},
   {guessWord:'water', letterCount: 2},
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="wrapper">
       <Message success={false}  />
-      
+      <Input/>
       <GuessWord guessword={gussedWords}/>
      
     </div>
