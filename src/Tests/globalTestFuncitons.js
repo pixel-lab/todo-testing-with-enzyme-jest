@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import checkPropTypes from 'check-prop-types';
 
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import rootReducer from '../reducers'
+
+import {middleware} from '../configureStore';
 
 export const ElementSearch = (wrapper, tag) => (
     wrapper.find(`[data-test="${tag}"]`)
@@ -13,6 +15,7 @@ export const checkProps = (component, props) => {
 }
 
 export const storeFactory = (initialstate) => {
-   // console.log(initialstate);
-    return createStore(rootReducer,initialstate);
+    const createStoreWithMiddleWare = applyMiddleware(...middleware)(createStore);
+    return createStoreWithMiddleWare(rootReducer,initialstate);
 }
+
