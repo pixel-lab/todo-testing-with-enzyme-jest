@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {getSecretWord} from './actions/'
 
 class Input extends Component{    
     render(){        
@@ -21,4 +22,4 @@ const mapStateToProps = ({success}) => {
         success
     }
 }
-export default connect(mapStateToProps)(Input)
+export default connect(mapStateToProps,{getSecretWord})(Input)

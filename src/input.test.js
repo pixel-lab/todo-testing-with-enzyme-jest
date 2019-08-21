@@ -41,4 +41,18 @@ describe('Input component: wordes gussed',()=>{
     it('wordes gussed: should render the submit button', ()=>{
         expect(ElementSearch(wrapper, 'submit-button').length).toBe(0);
     })
+});
+
+describe('Checking input redux props', () => {
+    it('`Success` should be true', ()=> {
+        const success = true;
+        const wrapper = setup({success});
+        const successProps = wrapper.instance().props.success;
+        expect(successProps).toBe(true)
+    });
+    it('`getSecretWord` should be function', ()=> {       
+        const wrapper = setup();
+        const successProps = wrapper.instance().props.getSecretWord;
+        expect(successProps).toBeInstanceOf(Function);
+    })
 })
