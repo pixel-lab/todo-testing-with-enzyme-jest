@@ -7,13 +7,9 @@ import GuessWord from './guessword';
 import Message from './message';
 import Input from './input';
 
-const gussedWords =[
-  {guessWord:'store', letterCount: 3},
-  {guessWord:'water', letterCount: 2},
-  {guessWord:'life', letterCount: 3},
-]
 
-class App extends Component {
+
+export class UnconnectedApp extends Component {
   componentDidMount(){
     this.props.getSecretWord();
   }  
@@ -21,19 +17,17 @@ class App extends Component {
   return (
     <div className="wrapper">
       <h1>Jotto</h1>
-      <Message success={true}  />
+      <Message success={this.props.success}  />
       <Input/>
-      <GuessWord guessword={gussedWords}/>     
+      <GuessWord guessword={this.props.GussedWords}/>     
     </div>
   )}
 }
 
 const mapStateToProps = (state) => {
   const {success,GussedWords,SecretWord} = state;
-  return {
-    success,GussedWords,SecretWord
-  }
+  return {success,GussedWords,SecretWord};
 }
 
 
-export default connect(mapStateToProps,{getSecretWord})(App);
+export default connect(mapStateToProps,{getSecretWord})(UnconnectedApp);

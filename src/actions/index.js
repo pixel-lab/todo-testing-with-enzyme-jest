@@ -36,6 +36,8 @@ export const getSecretWord = ()=> {
             type:actionTypes.SET_SECRET_WORD,
             payloads: response.data
         })
-       )
+       ).catch((err) => {
+           
+       })
     }
 }
