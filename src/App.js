@@ -19,7 +19,7 @@ export class UnconnectedApp extends Component {
       <h1>Jotto</h1>
       <Message success={this.props.success}  />
       <Input/>
-      <GuessWord guessword={this.props.GussedWords}/>     
+      <GuessWord GussedWords={this.props.GussedWords}/>     
     </div>
   )}
 }

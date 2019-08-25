@@ -2,11 +2,14 @@ import React from 'react'
 
 const GuessWord = (props)=>{
     //console.log(props);
-    if(!props.guessword){
+    if(!props.GussedWords){
         return <div data-test="guess-title">Guess the word</div>
     }
     else {
-        const retrunHTml =  props.guessword.map((i,j) => <tr data-test="result-count" key={j}><td>{i.guessWord}</td><td>{i.letterCount}</td></tr>);
+        const retrunHTml =  props.GussedWords.map((i,j) => 
+        {
+            return <tr data-test="result-count" key={j}><td>{i.gussedWord}</td><td>{i.letterMatchingCount}</td></tr>
+        })
 
         return (
             <div>

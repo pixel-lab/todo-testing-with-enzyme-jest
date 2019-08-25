@@ -17,7 +17,7 @@ describe('Guess word testing', () => {
         ).toBe(1);
     })
     describe('after the gussed', () => { 
-        const guessword =[
+        const GussedWords =[
             {guessWord:'tank', letterCount: 3},
             {guessWord:'water', letterCount: 2},
             {guessWord:'life', letterCount: 3},
@@ -25,7 +25,7 @@ describe('Guess word testing', () => {
         let  wrapper 
 
         beforeEach(() => {
-            wrapper = setup({guessword});
+            wrapper = setup({GussedWords});
         });
        
 
@@ -38,7 +38,7 @@ describe('Guess word testing', () => {
         it('TR length should increase', ()=>{            
              expect(
                  ElementSearch(wrapper, 'result-count').length
-             ).toBe(guessword.length)
+             ).toBe(GussedWords.length)
         })
     })
 })

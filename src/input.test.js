@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme'
 import {ElementSearch,storeFactory} from './Tests/globalTestFuncitons'; 
-import Input from './input';
+import Input,{UnconnectedInput} from './input';
 
 const setup = (initialState={}) => {
     const store = storeFactory(initialState)
@@ -50,9 +50,35 @@ describe('Checking input redux props', () => {
         const successProps = wrapper.instance().props.success;
         expect(successProps).toBe(true)
     });
-    it('`getSecretWord` should be function', ()=> {       
+    it('`GussedWord` should be function', ()=> {       
         const wrapper = setup();
-        const successProps = wrapper.instance().props.getSecretWord;
+        const successProps = wrapper.instance().props.GussedWord;
         expect(successProps).toBeInstanceOf(Function);
     })
-})
+});
+
+describe('action creator `GussedWord`', ()=> {
+     let GussedWord ='train';
+     let wrapper;
+     let fakeJestCall;
+     beforeEach(()=> {      
+         // create a mock function for `getSecretWord`
+         fakeJestCall = jest.fn();        
+         // set up Input, with guessWordMock as a prop
+         wrapper = shallow(<UnconnectedInput GussedWord= {fakeJestCall} />);
+         // simulate the input
+         wrapper.instance().inputBox.current = { value: GussedWord };
+         //console.log(wrapper1.instance().inputBox);
+         // simulate click on submit button
+         const submitBtn = ElementSearch(wrapper, 'submit-button');
+         submitBtn.simulate('click', { preventDefault() {} });
+     })
+     it('guessWord` was called once', ()=> {        
+         expect(fakeJestCall.mock.calls.length).toBe(1);
+     })
+
+
+
+
+  
+});

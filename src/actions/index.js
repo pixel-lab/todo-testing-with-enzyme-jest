@@ -5,18 +5,10 @@ export const actionTypes ={
     GUESS_WORD:'GUESS_WORD',
     SET_SECRET_WORD: 'SET_SECRET_WORD'
 }
-
-// export function correctGuess(){
-//     return {
-//         type: actionTypes.CORRECT_GUESS
-//     };
-// }
-
-export const GussedWord = (gussedWord) =>{
+export const GussedWord = (gussedWord) =>{    
     return function(dispatch, getState){
         const SecretWord = getState().SecretWord;        
         const letterMatchingCount = GetletterMatchingCount(gussedWord, SecretWord);
-
         dispatch({
             type:actionTypes.GUESS_WORD,
             payloads: {gussedWord,letterMatchingCount}
