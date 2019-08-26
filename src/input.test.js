@@ -76,6 +76,13 @@ describe('action creator `GussedWord`', ()=> {
      it('guessWord` was called once', ()=> {        
          expect(fakeJestCall.mock.calls.length).toBe(1);
      })
+     it('guessWord` was called once', ()=> {    
+         //console.log();    
+        expect(fakeJestCall.mock.calls[0][0]).toBe(GussedWord);
+    })
+     it('InputBox should become empty again', ()=> {        
+        expect(wrapper.instance().inputBox.current.value).toBe('');
+    })
 
 
 

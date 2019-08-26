@@ -8,10 +8,8 @@ export class UnconnectedInput extends Component{
         this.inputBox = React.createRef();
     }   
     submitCall =(evt) => {
-        evt.preventDefault();        
-        const value = this.inputBox.current.value;
-        if(value && value.length > 0)
-        this.props.GussedWord(value);
+        evt.preventDefault();
+        this.props.GussedWord(this.inputBox.current.value);
         this.inputBox.current.value = ''
     } 
     render(){             
